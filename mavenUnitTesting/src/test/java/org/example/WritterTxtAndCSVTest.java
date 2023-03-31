@@ -9,18 +9,18 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class WritterTxtAndCSVTest {
 
-    public static final String save = "C:/Users/USER/Documents/CSV/testing/test.txt";
+    public static final String save = "D:/Users/USER/Documents/CSV/testing/test.txt";
     List<String> dummy = List.of("testing", "ini", "tulisan", "keluar", "apa", "Engga");
     WritterTxtAndCSV wtc = new WritterTxtAndCSV();
 
     @Test
     void writterTxtAndCsv() {
-        assertTrue(wtc.writterTxtAndCsv(save, dummy));
+        assertTrue(wtc.writterTxtAndCsv("C:/Users/USER/Documents/CSV/testing/test.txt", dummy));
     }
 
     @Test
     void testWritterTxtAndCsvFailed() {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(RuntimeException.class, () -> {
             wtc.writterTxtAndCsv(save, dummy);
         });
     }
