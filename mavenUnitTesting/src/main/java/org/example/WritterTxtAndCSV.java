@@ -6,27 +6,18 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 
 public class WritterTxtAndCSV implements ModuleWritter {
     @Override
-    public void writterTxtAndCsv(String save, List<String> data) {
+    public boolean writterTxtAndCsv(String save, List<String> data) {
         try {
             BufferedWriter bwr = new BufferedWriter(new FileWriter(new File(save)));
             bwr.write("REKAP NILAI\n\n");
 
             /*
-                Iterator
-             */
-//            Iterator<String> result = data.listIterator();
-//            while (result.hasNext()) {
-//                String value = result.next();
-//                bwr.write(value + "\n");
-//            }
-
-            /*
-                lambda
+                lambda dan juga menggunakan forEach sebagai output masukan
+                dan juga menggunakan runtimeException
              */
             data.forEach(a -> {
                 try {
@@ -41,8 +32,9 @@ public class WritterTxtAndCSV implements ModuleWritter {
             bwr.flush();
             bwr.close();
             System.out.println("succesfully written to a file");
+            return true;
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new IllegalArgumentException(e);
         }
     }
 }

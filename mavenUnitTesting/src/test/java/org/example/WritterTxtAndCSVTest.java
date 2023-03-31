@@ -5,16 +5,17 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class WritterTxtAndCSVTest {
 
-    public static final String save = "D:/Users/USER/Documents/CSV/testing/test.txt";
+    public static final String save = "C:/Users/USER/Documents/CSV/testing/test.txt";
     List<String> dummy = List.of("testing", "ini", "tulisan", "keluar", "apa", "Engga");
     WritterTxtAndCSV wtc = new WritterTxtAndCSV();
 
     @Test
     void writterTxtAndCsv() {
-        wtc.writterTxtAndCsv(save, dummy);
+        assertTrue(wtc.writterTxtAndCsv(save, dummy));
     }
 
     @Test

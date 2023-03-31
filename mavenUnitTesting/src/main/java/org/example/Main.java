@@ -20,6 +20,11 @@ public class Main {
         System.out.println("0. exit");
     }
 
+    /*
+        memberikan pernyataan dalam pemrograman
+        dengan argumen mengembalikan nilai true
+        or false
+     */
     public static boolean checkFileExists(String path) {
 
         Predicate<String> predicate = result -> {

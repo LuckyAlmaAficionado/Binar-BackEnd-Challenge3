@@ -44,7 +44,6 @@ public class ReaderCsv implements ModuleRead {
 
                 tempArr = line.split(";");
                 for (int i = 0; i < tempArr.length; i++) {
-
                     if (i >= 1) {
                         lenghtOfNumbers++;
                         value += Integer.parseInt(tempArr[i]);
@@ -53,7 +52,9 @@ public class ReaderCsv implements ModuleRead {
                     } else paketNilai.add(tempArr[i]);
                 }
 
+                // Lambda
                 Function<List<Integer>, Integer> modus = result -> Modus.getModus(result);
+                // lambda functions untuk mengembalikan nilai
                 Function<List<Integer>, Float> meanLambda = data -> {
                     float result = 0;
                     for (Integer x : data) result += x;
@@ -96,8 +97,6 @@ public class ReaderCsv implements ModuleRead {
                 paketNilai.add("Mean    : " + decimalFormat.format(value / lenghtOfNumbers));
                 paketNilai.add("Median  : " + Median.getMedian(tempMed));
             }
-
-            Collection<String> stringCollection = new ArrayList<>();
 
             br.close();
             return paketNilai;

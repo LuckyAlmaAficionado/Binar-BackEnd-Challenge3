@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 public class Median {
 
+    // menggunakan stream untuk mengurutkan List atau sorting
     public static List<Integer> sorting(List<Integer> data) {
         return data.stream().sorted().collect(Collectors.toList());
     }
